@@ -21,39 +21,11 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   color: var(--brown);
-  background: #e9e1d7;
+  background: linear-gradient(180deg, #ece4da 0%, #e6ddd1 100%);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   position: relative;
-}
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: calc((100vw - min(100vw, 941px)) / 2);
-  min-width: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .92;
-}
-body::before {
-  left: 0;
-  background:
-    linear-gradient(90deg, rgba(233,225,215,.96) 0%, rgba(233,225,215,.78) 45%, rgba(233,225,215,.18) 100%),
-    radial-gradient(circle at 18% 12%, rgba(224,190,136,.30), transparent 28%),
-    url("assets/images/bread-perspective.webp") center/cover no-repeat;
-  filter: saturate(.92) blur(1.2px);
-}
-body::after {
-  right: 0;
-  background:
-    linear-gradient(270deg, rgba(233,225,215,.96) 0%, rgba(233,225,215,.78) 45%, rgba(233,225,215,.18) 100%),
-    radial-gradient(circle at 82% 20%, rgba(224,190,136,.24), transparent 25%),
-    url("assets/images/hero-breads.webp") center/cover no-repeat;
-  filter: saturate(.95) blur(1px);
 }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
@@ -61,7 +33,7 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
 .site-shell {
-  width: min(100%, 941px);
+  width: min(100%, 940px);
   margin: 0 auto;
   min-height: 100vh;
   overflow: hidden;
@@ -216,14 +188,11 @@ a { color: inherit; text-decoration: none; }
   flex: 0 0 43px;
   color: #a86e49;
 }
-.benefit-icon svg {
+.benefit-icon img {
   width: 100%;
   height: 100%;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.55;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  object-fit: contain;
+  display: block;
 }
 .benefit-item p {
   margin: 0;
@@ -407,14 +376,11 @@ main { padding: 30px 47px 0; }
   place-items: center;
   color: #b68a4c;
 }
-.quality-icon svg {
+.quality-icon img {
   width: 28px;
   height: 28px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  object-fit: contain;
+  display: block;
 }
 .quality-grid p { margin: 0; color: #6d3c29; font-size: 12px; line-height: 1.3; }
 .quality-grid strong { font-weight: 600; }
@@ -641,7 +607,7 @@ footer { padding: 0 24px 24px; }
   }
   .quality-grid > div { gap: 5px; }
   .quality-icon { width: 27px; height: 27px; min-width: 27px; }
-  .quality-icon svg { width: 16px; height: 16px; }
+  .quality-icon img { width: 16px; height: 16px; }
   .quality-grid p { font-size: 7.3px; line-height: 1.22; }
 
   .gallery-grid {
@@ -695,8 +661,6 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
-.benefit-icon svg,
-.quality-icon svg { stroke-width: 1.75; }
 
 .product-copy h2 { font-size: 35px; }
 .product-copy p { font-size: 14px; line-height: 1.5; }
@@ -942,7 +906,7 @@ button:focus-visible,
   }
   .quality-grid > div { gap: 7px; }
   .quality-icon { width: 31px; height: 31px; min-width: 31px; }
-  .quality-icon svg { width: 18px; height: 18px; }
+  .quality-icon img { width: 18px; height: 18px; }
   .quality-grid p { font-size: 9.2px; line-height: 1.25; }
 
   .gallery-grid { height: 142px; }
@@ -1000,56 +964,78 @@ button:focus-visible,
 
 .gallery-section { padding-top: 6px; }
 
-@media (max-width: 1100px) {
-  body::before,
-  body::after { opacity: .55; }
+
+
+.benefit-icon img,
+.quality-icon img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
-@media (max-width: 941px) {
-  body::before,
-  body::after { display: none; }
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+}
+.quality-icon {
+  color: transparent;
+}
+.quality-icon img {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 680px) {
+  .benefit-icon { width: 25px; height: 25px; flex-basis: 25px; }
+  .quality-icon img { width: 17px; height: 17px; }
 }
 
-/* ÍCONES PROFISSIONAIS — sistema monoline consistente */
-.benefit-icon,
-.quality-icon {
-  color: #aa724d;
+
+.site-credit {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: .72;
 }
-.benefit-icon svg,
-.quality-icon svg {
-  overflow: visible;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
+.site-credit span {
+  color: #b79261;
+  font-size: 8px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1;
 }
-.benefit-icon svg {
-  stroke-width: 2.15;
+.site-credit img {
+  width: 42px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
-.quality-icon {
-  border-color: rgba(196, 145, 81, .52);
-  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(250,241,226,.74));
-  box-shadow: 0 5px 13px rgba(120, 74, 41, .07), inset 0 1px rgba(255,255,255,.72);
+@media (max-width: 680px) {
+  .site-credit {
+    margin-top: 8px;
+    gap: 5px;
+  }
+  .site-credit span {
+    font-size: 6.5px;
+    letter-spacing: .12em;
+  }
+  .site-credit img {
+    width: 34px;
+  }
 }
-.quality-icon svg {
-  width: 30px;
-  height: 30px;
-  stroke-width: 1.95;
+
+
+.site-credit a {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity .2s ease, transform .2s ease;
 }
-.benefit-item:hover .benefit-icon,
-.quality-grid > div:hover .quality-icon {
-  color: #8d5839;
-}
-.benefit-icon,
-.quality-icon {
-  transition: color .22s ease, transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-}
-.benefit-item:hover .benefit-icon,
-.quality-grid > div:hover .quality-icon {
+.site-credit a:hover {
+  opacity: .88;
   transform: translateY(-1px);
 }
-
-@media (max-width: 680px) {
-  .benefit-icon svg { stroke-width: 2; }
-  .quality-icon svg { width: 19px; height: 19px; stroke-width: 1.8; }
+.site-credit a:focus-visible {
+  outline: 2px solid rgba(31, 111, 255, .45);
+  outline-offset: 3px;
+  border-radius: 4px;
 }

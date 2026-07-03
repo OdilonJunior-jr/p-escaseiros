@@ -1,24 +1,14 @@
-PÃES CASEIROS DA CIDA — LINK BIO PREMIUM
+Projeto atualizado:
+- Ícones substituídos pelos arquivos enviados pelo usuário
+- Fundo quadriculado removido dos ícones (PNG transparente)
+- Ajuste limpo para desktop e mobile
+- Removidos os laterais exagerados que estavam poluindo o layout
 
-Abra o arquivo index.html no navegador.
-
-FUNCIONAMENTO DO PEDIDO
-1. O cliente escolhe a quantidade de pães.
-2. O valor total é atualizado automaticamente.
-3. Ao tocar em “Fazer pedido”, o WhatsApp da Cida é aberto com o pedido preenchido.
-
-WhatsApp configurado: (34) 99766-5455
-Preço configurado: R$ 12,00 por unidade
-
-ESTRUTURA
+Arquivos utilizados no projeto:
 - index.html
 - style.css
 - script.js
-- assets/images/
+- assets/images/*
+- assets/icons/*
 
-AJUSTES DESTA VERSÃO
-- Sete ícones redesenhados como SVG monoline diretamente no HTML.
-- Traços, proporções, cor e acabamento visual padronizados.
-- Ícones responsivos e nítidos em qualquer resolução.
-- Foram mantidas somente as seis imagens realmente utilizadas pelo projeto.
-- Arquivos de referência e imagens sem uso foram removidos do pacote final.
+- Adicionado crédito discreto no rodapé: "Desenvolvido por" + logo GridX

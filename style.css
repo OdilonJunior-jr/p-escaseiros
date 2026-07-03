@@ -1008,3 +1008,48 @@ button:focus-visible,
   body::before,
   body::after { display: none; }
 }
+
+/* ÍCONES PROFISSIONAIS — sistema monoline consistente */
+.benefit-icon,
+.quality-icon {
+  color: #aa724d;
+}
+.benefit-icon svg,
+.quality-icon svg {
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.benefit-icon svg {
+  stroke-width: 2.15;
+}
+.quality-icon {
+  border-color: rgba(196, 145, 81, .52);
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(250,241,226,.74));
+  box-shadow: 0 5px 13px rgba(120, 74, 41, .07), inset 0 1px rgba(255,255,255,.72);
+}
+.quality-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.95;
+}
+.benefit-item:hover .benefit-icon,
+.quality-grid > div:hover .quality-icon {
+  color: #8d5839;
+}
+.benefit-icon,
+.quality-icon {
+  transition: color .22s ease, transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.benefit-item:hover .benefit-icon,
+.quality-grid > div:hover .quality-icon {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 680px) {
+  .benefit-icon svg { stroke-width: 2; }
+  .quality-icon svg { width: 19px; height: 19px; stroke-width: 1.8; }
+}

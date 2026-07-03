@@ -21,11 +21,39 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   color: var(--brown);
-  background: linear-gradient(180deg, #ece4da 0%, #e6ddd1 100%);
+  background: #e9e1d7;
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   position: relative;
+}
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - min(100vw, 941px)) / 2);
+  min-width: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .92;
+}
+body::before {
+  left: 0;
+  background:
+    linear-gradient(90deg, rgba(233,225,215,.96) 0%, rgba(233,225,215,.78) 45%, rgba(233,225,215,.18) 100%),
+    radial-gradient(circle at 18% 12%, rgba(224,190,136,.30), transparent 28%),
+    url("assets/images/side-left.webp") center/cover no-repeat;
+  filter: saturate(.92) blur(1.2px);
+}
+body::after {
+  right: 0;
+  background:
+    linear-gradient(270deg, rgba(233,225,215,.96) 0%, rgba(233,225,215,.78) 45%, rgba(233,225,215,.18) 100%),
+    radial-gradient(circle at 82% 20%, rgba(224,190,136,.24), transparent 25%),
+    url("assets/images/side-right.webp") center/cover no-repeat;
+  filter: saturate(.95) blur(1px);
 }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
@@ -33,7 +61,7 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
 .site-shell {
-  width: min(100%, 940px);
+  width: min(100%, 941px);
   margin: 0 auto;
   min-height: 100vh;
   overflow: hidden;
@@ -452,6 +480,8 @@ footer { padding: 0 24px 24px; }
 /* MOBILE — preserva a composição da referência, sem transformar tudo em blocos gigantes */
 @media (max-width: 680px) {
   body { background: var(--cream); }
+  body::before,
+  body::after { display: none; }
   body::before,
   body::after { display: none; }
   .site-shell { width: 100%; box-shadow: none; }
@@ -1038,4 +1068,9 @@ button:focus-visible,
   outline: 2px solid rgba(31, 111, 255, .45);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+@media (max-width: 941px) {
+  body::before,
+  body::after { display: none; }
 }
